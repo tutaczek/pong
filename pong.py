@@ -15,6 +15,11 @@ def main():
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
                 return
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w:
+                    print('UP')
+                if event.key == pygame.K_s:
+                    print('DOWN')
         pygame.display.flip()
 
 main()
