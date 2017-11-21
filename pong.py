@@ -27,7 +27,7 @@ def main():
                     paddlePosition2 = paddlePosition2 + 10
         screen.fill((128, 128, 200))    
         screen.blit(paddle, (5, paddlePosition))
-        screen.blit(paddle2, (795, paddlePosition2))
+        screen.blit(paddle2, (785, paddlePosition2))
         pygame.display.flip()
 
 main()
