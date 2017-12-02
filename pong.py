@@ -12,8 +12,13 @@ def main():
     screen = pygame.display.set_mode((800, 600))
     paddle = pygame.Surface((10, 100))
     paddle2 = pygame.Surface((10, 100))
+    ball = pygame.Surface((10, 10))
     paddlePosition = 300
     paddlePosition2 = 300
+    ballPositionX = 400
+    ballPositionY = 300
+    ballVelocityX = 0.5
+    ballVelocityY = 0.5
     while True:
         for event in pygame.event.get():
             if event.type == pygame.locals.QUIT:
@@ -32,9 +37,12 @@ def main():
             paddlePosition2 = paddlePosition2 - 1
         if keys[pygame.K_DOWN]:
             paddlePosition2 = paddlePosition2 + 1
+        ballPositionX = ballPositionX + ballVelocityX
+        ballPositionY = ballPositionY + ballVelocityY
         screen.fill((128, 128, 200))    
         screen.blit(paddle, (5, paddlePosition))
         screen.blit(paddle2, (785, paddlePosition2))
+        screen.blit(ball, (ballPositionX, ballPositionY))
         pygame.display.flip()
 
 main()
