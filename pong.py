@@ -17,9 +17,14 @@ def main():
     paddlePosition2 = 300
     ballPositionX = 400
     ballPositionY = 300
-    ballVelocityX = 0.5
-    ballVelocityY = 0.5
+    ballVelocityX = 200
+    ballVelocityY = 200
+    lastTime = pygame.time.get_ticks() / 1000.0
+
     while True:
+        currentTime = pygame.time.get_ticks() / 1000.0
+        dt = currentTime - lastTime
+        lastTime = currentTime
         for event in pygame.event.get():
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
@@ -42,8 +47,8 @@ def main():
             ballVelocityX = -ballVelocityX
         if ballPositionY <= 0 or ballPositionY >= 600:
             ballVelocityY = -ballVelocityY
-        ballPositionX = ballPositionX + ballVelocityX
-        ballPositionY = ballPositionY + ballVelocityY
+        ballPositionX = ballPositionX + ballVelocityX * dt
+        ballPositionY = ballPositionY + ballVelocityY * dt
         screen.fill((128, 128, 200))    
         screen.blit(paddle, (5, paddlePosition))
         screen.blit(paddle2, (785, paddlePosition2))
