@@ -43,8 +43,13 @@ def main():
         if keys[pygame.K_DOWN]:
             paddlePosition2 = paddlePosition2 + 1
         
-        if ballPositionX <= 0 or ballPositionX >= 800:
+        if ballPositionX >= 5 and ballPositionX <= 15 \
+                and ballPositionY >= paddlePosition and ballPositionY <= paddlePosition + 100:
             ballVelocityX = -ballVelocityX
+        if ballPositionX + 10 >= 785 and ballPositionX + 10 <= 795 \
+                and ballPositionY >= paddlePosition2 and ballPositionY <= paddlePosition2 + 100:
+            ballVelocityX = -ballVelocityX
+
         if ballPositionY <= 0 or ballPositionY >= 600:
             ballVelocityY = -ballVelocityY
         ballPositionX = ballPositionX + ballVelocityX * dt
