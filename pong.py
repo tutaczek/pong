@@ -45,10 +45,10 @@ def main():
         
         if ballPositionX >= 5 and ballPositionX <= 15 \
                 and ballPositionY >= paddlePosition and ballPositionY <= paddlePosition + 100:
-            ballVelocityX = -ballVelocityX
+            ballVelocityX = abs(ballVelocityX)
         if ballPositionX + 10 >= 785 and ballPositionX + 10 <= 795 \
                 and ballPositionY >= paddlePosition2 and ballPositionY <= paddlePosition2 + 100:
-            ballVelocityX = -ballVelocityX
+            ballVelocityX = -abs(ballVelocityX)
 
         if ballPositionY <= 0 or ballPositionY >= 600:
             ballVelocityY = -ballVelocityY
